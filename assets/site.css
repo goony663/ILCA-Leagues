@@ -6,6 +6,7 @@
 
 :root{--navy:#01293f;--slate:#2e5360;--steel:#44869e;--steel2:#3d7d95;--link:#2e6a80;--mist:#e8eff2;--line:#cfdde3;--muted:#57707d;--warn:#b04a16}
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0;background:#fff}
 body{font-family:Heebo,system-ui,sans-serif;color:var(--navy);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
 a{color:var(--steel)}a:hover{color:var(--slate)}
@@ -84,6 +85,68 @@ h2{margin:0;font-size:32px}
 a.lcard:hover{background:#dfe9ed;color:var(--navy)}
 .lcard.soon{cursor:default}
 .lcard.soon .go{color:var(--muted)}
+
+/* kind tags, buttons, accordions, results rows */
+.ktag{font-size:12px;font-weight:700;padding:1px 8px;white-space:nowrap}
+.k-boulder{background:var(--steel);color:#fff}.k-lead{background:var(--slate);color:#fff}.k-sim{background:#fff;color:var(--slate);border:1px solid var(--steel)}
+.status{font-size:12px;font-weight:700;padding:1px 8px;background:#fbe9df;color:#8a3a10}
+.past-tag{font-size:12px;font-weight:600;padding:1px 8px;background:var(--mist);color:var(--slate)}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 20px;background:var(--navy);color:#fff;font-weight:700;font-size:15px;text-decoration:none;border:2px solid var(--navy)}
+.btn:hover{background:var(--slate);border-color:var(--slate);color:#fff}
+.btn.ghost{background:#fff;color:var(--navy)}.btn.ghost:hover{background:var(--mist);color:var(--navy)}
+.btn.steel{background:var(--steel);border-color:var(--steel)}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;background:var(--mist);color:var(--slate);font-weight:600;font-size:15px}
+.dgroup{display:flex;gap:7px;padding:14px 0;padding-inline-start:6px;border-top:3px solid var(--navy);border-bottom:1px solid var(--mist)}
+.dbtn{min-height:44px;padding:0 22px;border:0;cursor:pointer;font-family:Karantina,Heebo,sans-serif;font-weight:700;font-size:26px;line-height:1;transform:skewX(-8deg);background:var(--mist);color:var(--navy)}
+.dbtn span{display:inline-block;transform:skewX(8deg)}
+.dbtn[aria-pressed="true"]{background:var(--steel);color:#fff}
+.fbtn{min-height:44px;padding:0 16px;cursor:pointer;font-family:Heebo,sans-serif;font-weight:600;font-size:15px;background:#fff;color:var(--navy);border:2px solid var(--line)}
+.fbtn[aria-pressed="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+.acc{display:flex;flex-direction:column;border:2px solid var(--navy)}
+.acc>button{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;width:100%;min-height:64px;padding:14px 20px;border:0;background:var(--navy);color:#fff;cursor:pointer;text-align:right;font-family:Heebo,sans-serif}
+.acc .acc-t{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.acc .acc-t b{font-family:Karantina,Heebo,sans-serif;font-weight:700;font-size:32px;line-height:1;padding-top:3px}
+.acc .acc-t span,.acc .acc-s{font-size:15px;font-weight:600;color:#b9cdd6}
+.acc .acc-s{display:inline-flex;align-items:center;gap:8px}
+.acc .acc-s svg{transition:transform .2s}
+.acc>button[aria-expanded="true"] .acc-s svg{transform:rotate(180deg)}
+.acc .acc-p{padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px;font-size:15px}
+.acc ul{margin:0;padding-inline-start:22px;display:flex;flex-direction:column;gap:8px}
+.callout{background:var(--mist);padding:14px 16px;border-inline-start:4px solid var(--steel)}
+.callout.warn{background:#fbe9df;color:#5e2a0c;border:0;display:flex;gap:12px;align-items:flex-start}
+table.simple{width:100%;min-width:420px;border-collapse:collapse;font-size:15px}
+table.simple thead tr{background:var(--mist)}
+table.simple th,table.simple td{padding:10px 14px;text-align:right}
+table.simple tbody tr{border-bottom:1px solid var(--mist)}
+table.simple tbody th{font-family:Karantina,Heebo,sans-serif;font-weight:700;font-size:26px;line-height:1}
+.item.off{opacity:.62}
+
+.foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-top:14px}
+.foot p{margin:0;font-size:13px;color:var(--muted)}
+.tlink{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:600;font-size:15px;color:var(--link);text-decoration:none}
+.side-nav{flex:1 1 300px;max-width:360px;display:flex;flex-direction:column;gap:18px}
+.side-nav .lcard{flex:1 1 auto;min-height:140px}
+.side-nav .lcard h3{font-size:36px}
+.lcard.plain{background:#fff;border:2px solid var(--mist)}
+/* slideshow (National League) */
+.hero{display:none;flex-direction:column;gap:8px;margin-top:-12px}
+@media (min-width:768px){.hero.has{display:flex}}
+.hero .frames{display:flex;gap:8px;align-items:flex-start}
+.hero .fr{min-width:0;position:relative;overflow:hidden;background:var(--mist)}
+.hero .fr.side{flex:.6667 1 0;aspect-ratio:2/3}.hero .fr.mid{flex:1.5 1 0;aspect-ratio:3/2}
+.hero .fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
+.hero .fr img.on{opacity:1}
+.hero .ctl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.hero .pp{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:0;cursor:pointer;background:var(--navy);color:#fff}
+.hero .dots{display:flex;gap:6px}
+.hero .dots button{width:28px;height:44px;border:0;padding:0;cursor:pointer;background:transparent;display:inline-flex;align-items:center;justify-content:center}
+.hero .dots span{display:block;width:18px;height:6px;transform:skewX(-8deg);background:#cfdde3}
+.hero .dots button[aria-current="true"] span{background:var(--navy)}
+.hero .credit{font-size:13px;font-weight:600;color:var(--muted)}
+/* leaders */
+.lead-badge{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#fff;font-family:Karantina,Heebo,sans-serif;font-weight:700;font-size:28px;line-height:1;transform:skewX(-8deg)}
+.lead-badge span{transform:skewX(8deg)}
+select.sel{min-height:44px;padding:0 12px;font-family:Heebo,sans-serif;font-size:15px;font-weight:600;color:var(--navy);background:#fff;border:2px solid var(--line)}
 
 @media (max-width:767px){
   .wrap{padding:20px 16px 40px;gap:32px}

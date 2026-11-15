@@ -55,24 +55,23 @@
 /* Where each league card leads. Set the federation-site address of each page once it is live;
    null = page not built yet (card shows "בקרוב"). */
 const LEAGUES = [
-  { id: 'open',     title: 'הליגה הפתוחה', lines: ['הליגה הפתוחה לבוגרים ולבוגרות'], bar: 'var(--steel)', url: null },
-  { id: 'national', title: 'הליגה הארצית', lines: ['ליגת הילדים והנוער (U11 עד U19)', 'סימולציות מזכות (U17 ומעלה)'], bar: 'var(--slate)', url: null },
-  { id: 'elite',    title: 'ליגת העל',     lines: ['ליגת הטיפוס הבכירה בישראל'], bar: 'var(--navy)', url: 'https://ilca.org.il/%D7%9C%D7%99%D7%92%D7%AA-%D7%94%D7%A2%D7%9C/' },
-  { id: 'champ',    title: 'אליפויות',     lines: ['אליפויות ישראל בבולדר ובהובלה: ילדים, נוער, בוגרים'], bar: 'var(--steel2)', url: null, go: 'לדף האליפויות' }
+  { page: 'open',     title: 'הליגה הפתוחה', lines: ['הליגה הפתוחה לבוגרים ולבוגרות'], bar: 'var(--steel)' },
+  { page: 'national', title: 'הליגה הארצית', lines: ['ליגת הילדים והנוער (U11 עד U19)', 'סימולציות מזכות (U17 ומעלה)'], bar: 'var(--slate)' },
+  { page: 'elite',    title: 'ליגת העל',     lines: ['ליגת הטיפוס הבכירה בישראל'], bar: 'var(--navy)' },
+  { page: 'champ',    title: 'אליפויות',     lines: ['אליפויות ישראל בבולדר ובהובלה: ילדים, נוער, בוגרים'], bar: 'var(--steel2)', go: 'לדף האליפויות' }
 ];
 const UPCOMING_COUNT = 3;
 
 function renderCards(){
-  document.getElementById('cards').innerHTML = LEAGUES.map(l => {
-    const inner = `<div class="bar" aria-hidden="true" style="background:${l.bar}"></div>
+  const el = document.getElementById('cards');
+  el.innerHTML = LEAGUES.map(l => `<a class="lcard" data-page="${l.page}"><div class="bar" aria-hidden="true" style="background:${l.bar}"></div>
       <h3 class="disp">${l.title}</h3><p>${l.lines.map(x => `<span>${ILCA.esc(x)}</span>`).join('')}</p>
-      <span class="go">${l.url ? (l.go || 'לדף הליגה') : 'בקרוב'}</span>`;
-    return l.url ? `<a class="lcard" href="${l.url}" target="${/^https?:/.test(l.url) ? '_top' : '_self'}">${inner}</a>` : `<div class="lcard soon">${inner}</div>`;
-  }).join('');
+      <span class="go">${l.go || 'לדף הליגה'}</span></a>`).join('');
+  ILCA.wireLinks(el);
 }
 
 function renderUpcoming(items){
-  const next = items.filter(c => !c.cancelled && ILCA.dayDiff(c.end || c.start) >= 0)
+  const next = items.filter(c => !c.status && !c.approx && ILCA.dayDiff(c.end || c.start) >= 0)
                     .sort((a, b) => ILCA.D(a.start) - ILCA.D(b.start)).slice(0, UPCOMING_COUNT);
   document.getElementById('upcoming').innerHTML = next.length ? next.map(c => `
     <article class="item">

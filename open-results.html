@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תוצאות התחרויות – הליגה הפתוחה</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap" style="gap:28px">
+<a class="back" href="open.html"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg><span>חזרה לליגה הפתוחה</span></a>
+<header class="site-head">
+  <div>
+    <h1 class="disp">תוצאות התחרויות</h1>
+    <div class="sub">הליגה הפתוחה · עונת <span class="ltr">2026/27</span></div>
+  </div>
+  <img class="logo" style="height:64px" src="assets/logo.svg" alt="התאחדות הטיפוס בישראל">
+</header>
+<div class="dgroup" role="group" aria-label="ענף" id="discs"></div>
+<section class="main" style="flex:none">
+  <h2 class="disp" id="htitle" style="margin-bottom:8px">תחרויות שהתקיימו</h2>
+  <div class="list" id="list"></div>
+  <div class="empty" id="empty" hidden></div>
+  <div class="foot"><p>התוצאות מתפרסמות כאן אחרי כל תחרות. התחרות האחרונה מופיעה ראשונה.</p>
+    <a class="tlink" id="drive" href="#" target="_blank" rel="noopener"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg><span>לכל קבצי התוצאות בדרייב</span></a></div>
+</section>
+</div>
+<script src="assets/site.js"></script>
+<script>
+
+// Past competitions of a league (from the calendar), newest first, each with its results PDF when there is one
+function resultsPage(league){
+  let disc = 'boulder', cal = [], res = { items: [], drive: '' };
+  const pick = d => { disc = d; draw(); };
+  function draw(){
+    ILCA.discButtons(document.getElementById('discs'), disc, pick);
+    const label = ILCA.KIND[disc];
+    document.getElementById('htitle').textContent = `תחרויות ${label} שהתקיימו`;
+    const kindOk = c => c.kind === disc || (disc === 'boulder' && c.kind === 'sim' && /בולדר/.test(c.sub)) || (disc === 'lead' && c.kind === 'sim' && /הובלה/.test(c.sub));
+    const past = cal.filter(c => c.league === league && !c.status && kindOk(c) && ILCA.dayDiff(c.end || c.start) < 0)
+                    .sort((a, b) => ILCA.D(b.start) - ILCA.D(a.start));
+    const pdfOf = c => { const r = (res.items || []).find(x => x.start === c.start && x.title === c.title); return r && r.pdf; };
+    document.getElementById('list').innerHTML = past.map(c => {
+      const d = ILCA.D(c.start), pdf = pdfOf(c);
+      return `<article class="item" style="flex-wrap:wrap;padding:12px 0">
+        <div class="date"><span class="n disp ltr">${d.getDate()}</span><span class="m">${ILCA.MONTHS[d.getMonth()]}</span></div>
+        <div class="body" style="flex:1 1 260px"><h3>${ILCA.esc(c.title)}</h3><div class="vn">${ILCA.esc(c.sub)}</div>
+          ${c.cats ? `<div style="font-size:13px;color:var(--muted);margin-top:2px">קטגוריות: <strong style="color:var(--navy);font-weight:600">${ILCA.esc(c.cats)}</strong></div>` : ''}</div>
+        ${pdf ? `<a class="btn" href="${pdf}" target="_blank" rel="noopener"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path><path d="M9 13h6"></path><path d="M9 17h6"></path></svg><span>לתוצאות (PDF)</span></a>` : '<span class="chip">התוצאות יעלו בקרוב</span>'}
+      </article>`;
+    }).join('');
+    const next = cal.filter(c => c.league === league && !c.status && kindOk(c) && ILCA.dayDiff(c.start) >= 0).sort((a, b) => ILCA.D(a.start) - ILCA.D(b.start))[0];
+    document.getElementById('empty').hidden = past.length > 0;
+    document.getElementById('empty').textContent = `עוד לא התקיימו תחרויות ${label} העונה.` + (next ? ` התחרות הראשונה: ${next.title}, ${ILCA.dm(ILCA.D(next.start))}.` : '');
+  }
+  Promise.all([ILCA.json('data/calendar.json'), ILCA.json('data/results.json')]).then(([c, r]) => {
+    cal = c.items || []; res = r[league] || res;
+    if (res.drive) document.getElementById('drive').href = res.drive;
+    draw();
+  }).catch(() => { document.getElementById('list').innerHTML = '<div class="empty">לא ניתן לטעון את התוצאות.</div>'; });
+  draw();
+}
+resultsPage('open');
+</script>
+</body>
+</html>

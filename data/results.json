@@ -1,0 +1,35 @@
+{
+ "open": {
+  "drive": "https://drive.google.com/drive/folders/1ZNJqg4fV6YpiLHQt_F6ui0pu10SkVVg_",
+  "items": []
+ },
+ "national": {
+  "drive": "https://drive.google.com/drive/folders/1jJgn8b1U44_tK8pYW7FPU0GSjuxUbxlo",
+  "items": [
+   {
+    "kind": "lead",
+    "start": "2026-11-03",
+    "title": "THE WALL מודיעין",
+    "sub": "ליגה ארצית הובלה",
+    "cats": "כל הקטגוריות (U11-U19)",
+    "pdf": ""
+   },
+   {
+    "kind": "lead",
+    "start": "2026-10-19",
+    "title": "רוקיז חולון",
+    "sub": "סימולציה לליגת העל בהובלה (נוער+בוגרים)",
+    "cats": "U17 ומעלה",
+    "pdf": ""
+   },
+   {
+    "kind": "boulder",
+    "start": "2026-10-01",
+    "title": "טס״ה - בולדר נשר",
+    "sub": "סימולציה לליגת העל בבולדר (נוער+בוגרים)",
+    "cats": "U17 ומעלה",
+    "pdf": ""
+   }
+  ]
+ }
+}
