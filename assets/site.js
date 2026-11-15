@@ -19,7 +19,7 @@
 /* Where every page lives. wp = its address on ilca.org.il (opens as a whole page);
    null = not on the federation site yet, so the GitHub file opens inside the current frame. */
 const ILCA_PAGES = {
-  landing:         { file: 'index.html',            wp: 'https://ilca.org.il/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%AA%D7%97%D7%A8%D7%95%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%95%D7%AA-2/' },
+  landing:         { file: 'index.html',            wp: 'https://ilca.org.il/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%AA%D7%97%D7%A8%D7%95%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%95%D7%AA/' },
   elite:           { file: 'elite.html',            wp: 'https://ilca.org.il/%D7%9C%D7%99%D7%92%D7%AA-%D7%94%D7%A2%D7%9C/' },
   open:            { file: 'open.html',             wp: 'https://ilca.org.il/%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%A4%D7%AA%D7%95%D7%97%D7%94/' },
   openResults:     { file: 'open-results.html',     wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%A4%D7%AA%D7%95%D7%97%D7%94/' },
