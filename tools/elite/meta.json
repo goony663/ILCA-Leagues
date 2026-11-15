@@ -1,0 +1,310 @@
+{
+ "upcoming": [
+  {
+   "id": "B-L2",
+   "name": "ליגת העל בולדר 2",
+   "disc": "B",
+   "venue": "אולם נורמן, מכון וינגייט",
+   "start": "2026-11-10",
+   "end": "2026-11-12",
+   "days": "ג׳–ה׳",
+   "cats": "בוגרים, U17",
+   "regClose": "2026-11-03"
+  },
+  {
+   "id": "B-L3",
+   "name": "ליגת העל בולדר 3",
+   "disc": "B",
+   "venue": "אולם נורמן, מכון וינגייט",
+   "start": "2026-12-08",
+   "end": "2026-12-10",
+   "days": "ג׳–ה׳",
+   "cats": "בוגרים, U17",
+   "regClose": "2026-11-24"
+  },
+  {
+   "id": "L-L2",
+   "name": "ליגת העל הובלה 2",
+   "disc": "L",
+   "venue": "The Wall מודיעין",
+   "start": "2026-12-23",
+   "end": "2026-12-24",
+   "days": "ד׳–ה׳",
+   "cats": "בוגרים, U17",
+   "regClose": "2026-12-09"
+  }
+ ],
+ "past": [
+  {
+   "id": "B-L1",
+   "name": "ליגת העל בולדר 1",
+   "disc": "B",
+   "venue": "מכון וינגייט",
+   "start": "2026-10-13",
+   "end": "2026-10-15",
+   "folder": "1GXnQ-k9K3Y-Kbka_LxJL-OLDZkfDO18r"
+  },
+  {
+   "id": "L-L1",
+   "name": "ליגת העל הובלה 1",
+   "disc": "L",
+   "venue": "The Wall מודיעין",
+   "start": "2026-10-28",
+   "end": "2026-10-29",
+   "folder": "1TYAktWPQ2CaYuQWRe3IZmVTGa7cGikjD"
+  },
+  {
+   "id": "B-L2",
+   "name": "ליגת העל בולדר 2",
+   "disc": "B",
+   "venue": "אולם נורמן, מכון וינגייט",
+   "start": "2026-11-10",
+   "end": "2026-11-12",
+   "folder": "10oYkjdlv5h4YHqywrS2r48PbrGCJiLT0"
+  }
+ ],
+ "pdf": {
+  "B-L1": {
+   "M": {
+    "OPEN": [
+     [
+      "סבב 1",
+      "10s30DQEjOAb1Dou2q6DQFRs68cIjBZwZ"
+     ],
+     [
+      "סבב 2",
+      "1_QeDy0yDLSDUx8JSu-kKeEjJ-7EyT1pG"
+     ]
+    ],
+    "U21": [
+     [
+      "סבב 1",
+      "1rYn-PrCcOzkZdlRsdmpEZg2XSUVye5hI"
+     ],
+     [
+      "סבב 2",
+      "1WuHhxKtSQqQidBTOSEEIZQ85XARYGD9i"
+     ]
+    ],
+    "U19": [
+     [
+      "סבב 1",
+      "1F6O2RRwfYUdTm9ZVtN1Wc_CvEejkXgeE"
+     ],
+     [
+      "סבב 2",
+      "1XLhIQeM9aXWi2jinPtocUnp9UpP3MYda"
+     ]
+    ],
+    "U17": [
+     [
+      "סבב 1",
+      "1C79ezPgv0vPg71P0n4ZL2W3Fc1PzwmZ0"
+     ]
+    ]
+   },
+   "W": {
+    "OPEN": [
+     [
+      "סבב 1",
+      "1uFh0FxxUvBAg0evC9yKn2Zsg_vMidjFf"
+     ],
+     [
+      "סבב 2",
+      "1j145ZdIfUOWKkmzhuhqZCGM6bWoji7Qj"
+     ]
+    ],
+    "U21": [
+     [
+      "סבב 1",
+      "1G9nYOQZEKrckIieW6MMJyKV4eMIur8ha"
+     ],
+     [
+      "סבב 2",
+      "1OASSEbyYW5fyBac2qloACRrLxwwVy--B"
+     ]
+    ],
+    "U19": [
+     [
+      "סבב 1",
+      "1V9A54vqwcdd6V2HfHzxrA973F-Y5vqGp"
+     ],
+     [
+      "סבב 2",
+      "1VdP8IVK3cjERpuENDMn2N_a7uYm4muZR"
+     ]
+    ],
+    "U17": [
+     [
+      "סבב 1",
+      "1totVCpuQiJvt5NeXwZb2LDfAkBu9UFWg"
+     ]
+    ]
+   }
+  },
+  "L-L1": {
+   "M": {
+    "OPEN": [
+     [
+      "סבב 1",
+      "1170leDOXc52jA2e2KJ7pUGKfQeJumGEc"
+     ],
+     [
+      "סבב 2",
+      "1uaFujnpYaYdpSxRUx0ShMYKEhD78dvAn"
+     ]
+    ],
+    "U21": [
+     [
+      "סבב 1",
+      "1Xx4_kH5WZrR5_XgNX41f5C_fopDtJM9v"
+     ],
+     [
+      "סבב 2",
+      "1stF2zZp-1RsB9xDn7Zou2OGy8G2o9_37"
+     ]
+    ],
+    "U19": [
+     [
+      "סבב 1",
+      "1qOnPEim8_yJ0CMFRZ6aZK03g3esNWy22"
+     ],
+     [
+      "סבב 2",
+      "1VzClL4ruQSyUIxmxTnno3NupFevzaP1N"
+     ]
+    ],
+    "U17": [
+     [
+      "סבב 1",
+      "1cGU0dlkpYT-CYtpoEazgco_3EZbOtJMd"
+     ],
+     [
+      "סבב 2",
+      "1dFMGUmS2xbcoKL8NhOLpXfj18rnv3j0Q"
+     ]
+    ]
+   },
+   "W": {
+    "OPEN": [
+     [
+      "סבב 1",
+      "12ryKnFe7_yJoy3d8TQ49Ov8zJBrU87A0"
+     ],
+     [
+      "סבב 2",
+      "1I1BjKQyb1018YWOxWdJ5X7FVAajQ3tiD"
+     ]
+    ],
+    "U21": [
+     [
+      "סבב 1",
+      "1VrzgPwiaq-QO8rmuTac-QT6VNc1vqUup"
+     ],
+     [
+      "סבב 2",
+      "1ypzd15yn_CfRSXtp5ZLt9GeOkhhXg0Mq"
+     ]
+    ],
+    "U19": [
+     [
+      "סבב 1",
+      "1WH-W85OZ8mooq-D5kU6MEcD-1XMTed9z"
+     ],
+     [
+      "סבב 2",
+      "1ZlLhSQ_6LcOV7zusJUNXEIt6hNwdvMPT"
+     ]
+    ],
+    "U17": [
+     [
+      "סבב 1",
+      "1n9gF9LemvHnQRAWkQaRfUbUzuZw8A-wk"
+     ],
+     [
+      "סבב 2",
+      "1TW2OW027UsgiBLdBAOfCjxJbkSUBkxY8"
+     ]
+    ]
+   }
+  },
+  "B-L2": {
+   "M": {
+    "OPEN": [
+     [
+      "סבב 1",
+      "1T5hzhygKOcI-C_utJ5mwY1sNufsCXj_t"
+     ],
+     [
+      "סבב 2",
+      "1mLXe41IUrJeKWgQJx4JuhK1PwD_TRZC3"
+     ]
+    ],
+    "U21": [
+     [
+      "סבב 1",
+      "1vOcqlLJBKan535_hJJkJDCqeo3s5K0_M"
+     ],
+     [
+      "סבב 2",
+      "15_vQDYRqN0nbHH_9YrbPnLWEgSPlqiVe"
+     ]
+    ],
+    "U19": [
+     [
+      "סבב 1",
+      "1_6uPHQDrMRfm1x5FdgxSDhYeN4QqrQMw"
+     ],
+     [
+      "סבב 2",
+      "1su5NMPckxe_ESRuQTicUsnmEBOVYUijr"
+     ]
+    ],
+    "U17": [
+     [
+      "סבב 1",
+      "1x814gjwrdp6fWMcarJnChYNYBXPgASbm"
+     ]
+    ]
+   },
+   "W": {
+    "OPEN": [
+     [
+      "סבב 1",
+      "1O3NeBaDyU17lp4pBvviAoH7PyztIDpQj"
+     ],
+     [
+      "סבב 2",
+      "1ExnMnkuHoPKtGskGaboy_qMZZqgV310O"
+     ]
+    ],
+    "U21": [
+     [
+      "סבב 1",
+      "11KKNb_MQibVhTop42Vekk2jHn5FNRV1a"
+     ],
+     [
+      "סבב 2",
+      "1LfYKwAgQUgdsOj1_FzzAZstGrZPlZcyn"
+     ]
+    ],
+    "U19": [
+     [
+      "סבב 1",
+      "1OiybYnQiScbzh_7V2eNd-xNRN_fmkPwK"
+     ],
+     [
+      "סבב 2",
+      "1-jrA48ObNYfEPQlboHlHVGT5LDnZQ5gR"
+     ]
+    ],
+    "U17": [
+     [
+      "סבב 1",
+      "1QWWOG0SEdz3IJLMi-c1hGX_RotjqgQdE"
+     ]
+    ]
+   }
+  }
+ }
+}

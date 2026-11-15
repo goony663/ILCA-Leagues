@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ליגת העל – התאחדות הטיפוס</title>
+<style>
+__FONTS__
+:root{--navy:#01293f;--slate:#2e5360;--steel:#44869e;--link:#2e6a80;--mist:#e8eff2;--line:#cfdde3;--muted:#57707d}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff}
+body{font-family:Heebo,system-ui,sans-serif;color:var(--navy);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:var(--steel)}
+.ltr{unicode-bidi:isolate;direction:ltr;display:inline-block}
+.disp{font-family:Karantina,Heebo,sans-serif;font-weight:700;line-height:1}
+.wrap{max-width:1120px;margin:0 auto;padding:28px 24px 56px;display:flex;flex-direction:column;gap:40px}
+.skew{transform:skewX(-8deg)}
+.unskew{display:inline-block;transform:skewX(8deg)}
+
+/* back link (as on the federation's league pages) */
+.back{align-self:flex-start;display:inline-flex;align-items:center;gap:6px;min-height:44px;font-weight:600;font-size:15px;color:var(--slate);text-decoration:none;margin-bottom:-32px}
+.back:hover{color:var(--steel)}
+/* header */
+header{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px}
+h1{margin:0;font-size:64px}
+.sub{font-size:17px;font-weight:600;color:var(--slate);margin-top:4px}
+.logo svg{height:64px;width:auto;display:block}
+
+/* chyron (as on the federation's תחרויות לאומיות page) */
+.chyron{display:flex;align-items:stretch;min-height:52px;gap:7px;padding-inline-start:10px;margin-top:-12px}
+.ch-lbl{background:var(--steel);color:#fff;display:flex;align-items:center;padding:0 22px;transform:skewX(-8deg);flex:none}
+.ch-lbl span{font-size:27px;padding-top:3px;transform:skewX(8deg)}
+.ch-gap{width:14px;background:var(--slate);transform:skewX(-8deg);flex:none}
+.ch-bar{flex:1 1 0;min-width:0;background:var(--navy);color:#fff;transform:skewX(-8deg);overflow:hidden;display:flex;align-items:center;cursor:pointer}
+.ch-in{transform:skewX(8deg);overflow:hidden;width:100%}
+.ch-track{display:flex;width:max-content;white-space:nowrap;animation:chy var(--dur,60s) linear infinite}
+.ch-bar:hover .ch-track,.ch-bar.paused .ch-track{animation-play-state:paused}
+.ch-item{padding:0 26px;font-size:16px;border-inline-start:2px solid var(--steel)}
+.ch-item b{color:#9fd0e2;font-weight:600;margin-inline-end:8px}
+@keyframes chy{from{transform:translateX(0)}to{transform:translateX(50%)}}
+@media (prefers-reduced-motion:reduce){.ch-track{animation:none}.ch-in{overflow-x:auto}}
+
+/* rows */
+.row2{display:flex;flex-wrap:wrap;align-items:flex-start;gap:40px}
+.main{flex:999 1 560px;min-width:0;display:flex;flex-direction:column}
+.side{flex:1 1 300px;max-width:360px}
+.shead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin-bottom:10px}
+h2{margin:0;font-size:32px}
+.list{border-top:3px solid var(--navy);display:flex;flex-direction:column}
+
+/* competition row */
+.item{display:flex;gap:14px;padding:12px 0;border-bottom:1px solid var(--mist);align-items:center}
+.date{flex:0 0 auto;min-width:64px;text-align:center;display:flex;flex-direction:column;align-self:flex-start}
+.date .n{font-size:36px;line-height:.85;white-space:nowrap}
+.date .m{font-weight:600;font-size:13px;line-height:1.3;color:var(--slate);margin-top:3px}
+.date .w{font-size:12px;line-height:1.3;color:var(--muted)}
+.body{flex:1 1 0;min-width:0;display:flex;flex-direction:column}
+.body h3{margin:0;font-weight:700;font-size:17px;line-height:1.3}
+.body .vn{color:var(--slate);font-size:14px}
+.meta{display:flex;flex-wrap:wrap;gap:2px 18px;margin-top:4px;font-size:13px;color:var(--muted)}
+.meta strong{color:var(--navy);font-weight:600}
+.tag{font-family:Karantina,Heebo,sans-serif;font-weight:700;font-size:20px;line-height:1;padding:6px 12px 4px;transform:skewX(-8deg);display:inline-block;white-space:nowrap}
+.tag.B{background:var(--steel);color:#fff}
+.tag.L{background:var(--mist);color:var(--navy)}
+.acts{display:flex;align-items:center;gap:10px;flex:none}
+
+/* next competition panel */
+.next{background:var(--navy);color:#fff;padding:26px 24px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.stripe{position:absolute;top:-10px;bottom:-10px;width:10px;transform:skewX(-8deg)}
+.next .s1{left:36px;background:var(--slate)}
+.next .s2{left:18px;background:var(--steel)}
+.next .inner{margin-left:52px;display:flex;flex-direction:column}
+.next h2{font-size:40px;margin-bottom:14px}
+.next h3{margin:0;font-size:19px;font-weight:700;line-height:1.3}
+.next .ln{font-size:14.5px;color:#c9dde5;margin-top:4px}
+.count{display:flex;align-items:baseline;gap:10px;margin:16px 0 4px;padding-top:14px;border-top:1px solid #2c4a5c}
+.count .n{font-size:64px}
+.count .t{font-size:16px;font-weight:600;color:#c9dde5}
+.reg{font-size:14px;color:#c9dde5}
+.reg strong{color:#fff}
+.bigbtn{display:flex;align-items:center;background:var(--steel);color:#fff;padding:0 18px;margin:18px 6px 0 0;text-decoration:none;min-height:56px;transform:skewX(-8deg)}
+.bigbtn:hover{background:#3a7890;color:#fff}
+.bigbtn>span{flex:1 1 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;transform:skewX(8deg)}
+.bigbtn strong{font-family:Karantina,Heebo,sans-serif;font-size:30px;font-weight:700;line-height:1;padding-top:3px}
+
+/* results */
+.res{border-bottom:1px solid var(--mist)}
+.res summary{list-style:none;cursor:pointer}
+.res summary::-webkit-details-marker{display:none}
+.res summary .item{border-bottom:0}
+.res summary:hover .body h3{color:var(--link)}
+.toggle{display:inline-flex;align-items:center;gap:4px;margin-top:4px;font-weight:600;font-size:14px;color:var(--link)}
+.toggle svg{transition:transform .2s}
+.res[open] .toggle svg{transform:rotate(180deg)}
+.allres{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 16px;background:var(--navy);color:#fff;text-decoration:none;transform:skewX(-8deg);white-space:nowrap}
+.allres:hover{background:var(--slate);color:#fff}
+.allres>span{display:inline-flex;align-items:center;gap:8px;transform:skewX(8deg);font-weight:600;font-size:15px}
+.pgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:4px 0 18px 0;margin-inline-start:78px}
+.pcard{background:var(--mist);padding:14px 30px 12px 16px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.pcard .bar{position:absolute;top:-10px;bottom:-10px;right:8px;width:8px;transform:skewX(-8deg);background:var(--steel)}
+.pcard h4{margin:0 0 6px;font-size:26px}
+.pod{list-style:none;margin:0;padding:0;flex:1}
+.pod li{display:flex;align-items:center;gap:12px;padding:6px 0;border-bottom:1px solid #d9e5ea}
+.pod li:last-child{border-bottom:0}
+.badge{flex:none;display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;color:#fff;font-family:Karantina,Heebo,sans-serif;font-weight:700;font-size:22px;line-height:1;transform:skewX(-8deg)}
+.b1{background:var(--navy)}.b2{background:var(--slate)}.b3{background:var(--steel)}
+.who{display:flex;flex-direction:column;line-height:1.25;min-width:0}
+.who strong{font-size:15.5px;font-weight:700}
+.who span{font-size:12.5px;color:var(--muted)}
+.empty{padding:16px 0;color:var(--muted)}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--mist);padding-top:14px}
+
+@media (max-width:767px){
+  .wrap{padding:20px 16px 40px;gap:32px}
+  h1{font-size:48px}
+  .logo svg{height:48px}
+  .side{max-width:none}
+  .item{flex-wrap:wrap}
+  .acts{width:100%;padding-inline-start:78px}
+  .pgrid{grid-template-columns:1fr 1fr;gap:8px;margin-inline-start:0}
+  .pcard{padding:10px 22px 8px 10px}
+  .pcard .bar{right:6px;width:6px}
+  .pcard h4{font-size:22px}
+  .badge{width:26px;height:26px;font-size:18px}
+  .pod li{gap:8px;align-items:flex-start}
+  .who strong{font-size:13.5px}
+  .who span{font-size:11.5px}
+  .next{order:-1}
+  .chyron{margin-top:-8px;min-height:46px;padding-inline-start:6px}
+  .ch-lbl{padding:0 12px}.ch-lbl span{font-size:22px}
+  .ch-gap{width:8px}
+  .ch-item{font-size:14.5px;padding:0 18px}
+}
+.pod .u15,.u15{display:inline-block;margin-inline-start:6px;padding:1px 6px;font-size:11px;font-weight:700;color:#fff;background:#44869e;vertical-align:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="back" id="backlink" target="_top" rel="noopener">
+  <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"></path></svg>
+  <span>חזרה לתחרויות לאומיות</span>
+</a>
+<header>
+  <div>
+    <h1 class="disp">ליגת העל</h1>
+    <div class="sub">עונת <span class="ltr">2026/27</span> · בולדר והובלה · בוגרים ו־U17</div>
+  </div>
+  <div class="logo">__LOGO__</div>
+</header>
+
+<div class="chyron" aria-label="עדכונים מהתחרויות">
+  <div class="ch-lbl"><span class="disp">עדכונים</span></div>
+  <div class="ch-gap" aria-hidden="true"></div>
+  <div class="ch-bar" id="chbar" title="לחיצה עוצרת או ממשיכה את הגלילה">
+    <div class="ch-in"><div class="ch-track" id="chtrack"></div></div>
+  </div>
+</div>
+
+<div class="row2">
+  <section class="main">
+    <div class="shead"><h2 class="disp">התחרויות הקרובות</h2></div>
+    <div class="list" id="upcoming"></div>
+  </section>
+  <aside class="side next" id="next" aria-label="המדרג הלאומי"></aside>
+</div>
+
+<section class="main" style="flex:none">
+  <div class="shead"><h2 class="disp">תוצאות התחרויות</h2></div>
+  <div class="list" id="past"></div>
+</section>
+
+<footer>התוצאות הרשמיות הן קובצי ה־PDF של ההתאחדות</footer>
+</div>
+
+<script>
+const RESULTS = __RESULTS__;
+const META = __META__;
+// Federation page with the national rankings (המדרג הלאומי). Replace with the ilca.org.il page address.
+const RANKINGS_URL = 'https://ilca.org.il/%d7%94%d7%9e%d7%93%d7%a8%d7%92-%d7%94%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%91%d7%98%d7%99%d7%a4%d7%95%d7%a1/';
+// Landing page of all leagues (תחרויות לאומיות). Replace with its address on the federation website.
+const LANDING_URL = 'https://ilca.org.il/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%AA%D7%97%D7%A8%D7%95%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%95%D7%AA/';
+
+const DISC = {B:'בולדר', L:'הובלה'};
+const MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+const DAYS = ['א׳','ב׳','ג׳','ד׳','ה׳','ו׳','ש׳'];
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const D = s => { const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); };
+const today = (() => { const t = new Date(); return new Date(t.getFullYear(), t.getMonth(), t.getDate()); })();
+const dayDiff = s => Math.round((D(s) - today) / 864e5);
+const dm = d => `${d.getDate()}.${d.getMonth()+1}`;
+const gdrive = id => `https://drive.google.com/file/d/${id}/view`;
+const folder = id => `https://drive.google.com/drive/folders/${id}`;
+const ARROW = '<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>';
+const CHEV = '<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"></path></svg>';
+
+function dateBox(c){
+  const s = D(c.start), e = D(c.end);
+  const n = s.getMonth() === e.getMonth() ? `${s.getDate()}–${e.getDate()}` : `${s.getDate()}.${s.getMonth()+1}–${e.getDate()}.${e.getMonth()+1}`;
+  return `<div class="date"><span class="n disp ltr">${n}</span><span class="m">${MONTHS[s.getMonth()]}</span><span class="w">${DAYS[s.getDay()]}–${DAYS[e.getDay()]}</span></div>`;
+}
+const regText = c => dayDiff(c.regClose) >= 0
+  ? `סגירת רישום: <strong class="ltr">${dm(D(c.regClose))}</strong>`
+  : `הרישום נסגר <strong class="ltr">${dm(D(c.regClose))}</strong>`;
+
+/* upcoming + next */
+const upcoming = META.upcoming.filter(c => dayDiff(c.end) >= 0).sort((a,b) => D(a.start) - D(b.start));
+function renderUpcoming(){
+  $('#upcoming').innerHTML = upcoming.length ? upcoming.map(c => `
+    <article class="item">
+      ${dateBox(c)}
+      <div class="body">
+        <h3>${esc(c.name)}</h3>
+        <div class="vn">${esc(c.venue)}</div>
+        <div class="meta"><span>קטגוריות: <strong>${esc(c.cats)}</strong></span><span>${regText(c)}</span></div>
+      </div>
+      <div class="acts"><span class="tag ${c.disc}"><span class="unskew">${DISC[c.disc]}</span></span></div>
+    </article>`).join('') : '<div class="empty">אין תחרויות נוספות כרגע.</div>';
+}
+function renderNext(){
+  $('#next').innerHTML = `<div class="stripe s1" aria-hidden="true"></div><div class="stripe s2" aria-hidden="true"></div>
+    <div class="inner"><h2 class="disp">המדרג הלאומי</h2>
+      <p class="ln" style="margin:0;font-size:15.5px">הדירוג המצטבר של העונה בבולדר ובהובלה, על פי תוצאות ליגת העל, אליפויות ישראל והישגים בחו״ל.</p>
+      <a class="bigbtn" href="${RANKINGS_URL}" target="_top" rel="noopener"><span><strong>למדרג הלאומי</strong>${ARROW}</span></a>
+    </div>`;
+}
+
+/* past results, each with collapsible podiums */
+const past = META.past.filter(c => RESULTS[c.id]).sort((a,b) => D(a.start) - D(b.start));
+const CARDS = [['M','OPEN','בוגרים'],['W','OPEN','בוגרות'],['M','U17','בנים U17'],['W','U17','בנות U17']];
+function podiums(c){
+  const R = RESULTS[c.id];
+  return CARDS.filter(([g,t]) => R[g] && R[g][t]).map(([g,t,label]) => {
+    const pod = R[g][t].filter(r => r[0] <= 3);
+    return `<div class="pcard"><div class="bar" aria-hidden="true"></div><h4 class="disp">${label}</h4>
+      <ol class="pod">${pod.map(r => `<li><span class="badge b${r[0]}"><span class="unskew">${r[0]}</span></span><span class="who"><strong>${esc(r[1])}${r[3] === 'U15' ? '<span class="u15">U15</span>' : ''}</strong><span>${esc(r[2])}</span></span></li>`).join('')}</ol>
+    </div>`;
+  }).join('');
+}
+function renderPast(){
+  $('#past').innerHTML = past.length ? past.map(c => `
+    <details class="res">
+      <summary><div class="item">
+        ${dateBox(c)}
+        <div class="body">
+          <h3>${esc(c.name)}</h3>
+          <div class="vn">${esc(c.venue)}</div>
+          <span class="toggle">מקומות ראשונים בכל קטגוריה ${CHEV}</span>
+        </div>
+        <div class="acts">
+          <span class="tag ${c.disc}"><span class="unskew">${DISC[c.disc]}</span></span>
+          <a class="allres" href="${folder(c.folder)}" target="_blank" rel="noopener"><span>כל התוצאות ${ARROW}</span></a>
+        </div>
+      </div></summary>
+      <div class="pgrid">${podiums(c)}</div>
+    </details>`).join('') : '<div class="empty">עדיין אין תוצאות.</div>';
+  document.querySelectorAll('.allres').forEach(a => a.addEventListener('click', e => e.stopPropagation()));
+}
+
+/* chyron: latest competition podiums + upcoming competitions */
+function names(rows){ return rows.map(r => r[1] + (r[3] === 'U15' ? ' (U15)' : '')); }
+function podiumLine(rows){
+  const by = p => names(rows.filter(r => r[0] === p));
+  const parts = [], ord = {1:'ראשון', 2:'שני', 3:'שלישי'};
+  [1,2,3].forEach(p => {
+    const n = by(p); if (!n.length) return;
+    parts.push(n.length > 1 ? `${n.join(' ו')} חולקים את המקום ה${ord[p]}` : `${n[0]} ${p === 1 ? 'במקום הראשון' : 'במקום ה' + ord[p]}`);
+  });
+  return parts.join(', ');
+}
+function renderChyron(){
+  const items = [];
+  const last = past[past.length - 1];
+  if (last) {
+    const short = last.name.replace('ליגת העל ', '');
+    CARDS.forEach(([g,t,label]) => {
+      const rows = ((RESULTS[last.id][g] || {})[t] || []).filter(r => r[0] <= 3);
+      if (rows.length) items.push([`${short} · ${label}`, podiumLine(rows)]);
+    });
+  }
+  upcoming.forEach((c, i) => {
+    const short = c.name.replace('ליגת העל ', '');
+    const n = dayDiff(c.start);
+    const when = n > 1 ? `בעוד ${n} ימים` : n === 1 ? 'מחר' : 'מתקיימת עכשיו';
+    items.push([`${i === 0 ? 'התחרות הבאה' : 'בהמשך העונה'} · ${short}`, `${dm(D(c.start))}–${dm(D(c.end))}, ${c.venue} (${when}). ${dayDiff(c.regClose) >= 0 ? 'סגירת רישום ' + dm(D(c.regClose)) : 'הרישום נסגר'}`]);
+  });
+  const html = items.map(([k,v]) => `<span class="ch-item"><b>${esc(k)}</b>${esc(v)}</span>`).join('');
+  const tr = $('#chtrack');
+  tr.innerHTML = html + `<span aria-hidden="true" style="display:contents">${html}</span>`;
+  requestAnimationFrame(() => tr.style.setProperty('--dur', Math.max(20, tr.scrollWidth / 2 / 70) + 's'));
+  $('#chbar').onclick = () => $('#chbar').classList.toggle('paused');
+}
+
+$('#backlink').href = LANDING_URL;
+renderUpcoming(); renderNext(); renderPast(); renderChyron();
+if (location.hash) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
+</script>
+</body>
+</html>
