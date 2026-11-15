@@ -1,6 +1,7 @@
 # Generates the league pages of the ILCA-Leagues site (design: Noam). Run: python3 build.py
 import os
 import os
+V='20261115b'  # bump after changing assets/site.css or site.js, so browsers load the new version
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..') + '/'
 ARROW_L='<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>'
 ARROW_L22=ARROW_L.replace('width="18" height="18"','width="22" height="22"')
@@ -20,7 +21,7 @@ def page(fname, title, h1, sub, back, body, script, gap=40):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
-<link rel="stylesheet" href="assets/site.css">
+<link rel="stylesheet" href="assets/site.css?v={V}">
 </head>
 <body>
 <div class="wrap" style="gap:{gap}px">
@@ -33,7 +34,7 @@ def page(fname, title, h1, sub, back, body, script, gap=40):
 </header>
 {body}
 </div>
-<script src="assets/site.js"></script>
+<script src="assets/site.js?v={V}"></script>
 <script>
 {script}
 </script>
