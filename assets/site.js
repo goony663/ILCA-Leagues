@@ -19,12 +19,15 @@
 /* Where every page lives. wp = its address on ilca.org.il (opens as a whole page);
    null = not on the federation site yet, so the GitHub file opens inside the current frame. */
 const ILCA_PAGES = {
-  landing:  { file: 'index.html',            wp: 'https://ilca.org.il/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%AA%D7%97%D7%A8%D7%95%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%95%D7%AA-2/' },
-  elite:    { file: 'elite.html',            wp: 'https://ilca.org.il/%D7%9C%D7%99%D7%92%D7%AA-%D7%94%D7%A2%D7%9C/' },
-  open:     { file: 'open.html',             wp: null },
-  national: { file: 'national.html',         wp: null },
-  champ:    { file: 'championships.html',    wp: null },
-  rankings: { file: null,                    wp: 'https://ilca.org.il/%d7%94%d7%9e%d7%93%d7%a8%d7%92-%d7%94%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%91%d7%98%d7%99%d7%a4%d7%95%d7%a1/' }
+  landing:         { file: 'index.html',            wp: 'https://ilca.org.il/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%AA%D7%97%D7%A8%D7%95%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%95%D7%AA-2/' },
+  elite:           { file: 'elite.html',            wp: 'https://ilca.org.il/%D7%9C%D7%99%D7%92%D7%AA-%D7%94%D7%A2%D7%9C/' },
+  open:            { file: 'open.html',             wp: 'https://ilca.org.il/%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%A4%D7%AA%D7%95%D7%97%D7%94/' },
+  openResults:     { file: 'open-results.html',     wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%A4%D7%AA%D7%95%D7%97%D7%94/' },
+  national:        { file: 'national.html',         wp: 'https://ilca.org.il/%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%90%D7%A8%D7%A6%D7%99%D7%AA/' },
+  nationalResults: { file: 'national-results.html', wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%90%D7%A8%D7%A6%D7%99%D7%AA/' },
+  nationalSeason:  { file: 'national-season.html',  wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94/' },
+  champ:           { file: 'championships.html',    wp: 'https://ilca.org.il/%D7%90%D7%9C%D7%99%D7%A4%D7%95%D7%99%D7%95%D7%AA/' },
+  rankings:        { file: null,                    wp: 'https://ilca.org.il/%d7%94%d7%9e%d7%93%d7%a8%d7%92-%d7%94%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%91%d7%98%d7%99%d7%a4%d7%95%d7%a1/' }
 };
 
 const ILCA = {

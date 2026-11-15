@@ -157,7 +157,7 @@ f'''<div class="row2">
     {accordion('open-champ','האליפות הפתוחה','אירוע השיא של העונה',open_champ)}
   </div>
   <nav class="side-nav" aria-label="תוצאות וליגות נוספות">
-    {navcard('תוצאות התחרויות','התוצאות המלאות של כל תחרות, בבולדר ובהובלה','לתוצאות',href='open-results.html')}
+    {navcard('תוצאות התחרויות','התוצאות המלאות של כל תחרות, בבולדר ובהובלה','לתוצאות',page='openResults')}
     {navcard('ליגת הסטודנטים','בשיתוף אס״א ישראל. ניקוד מצטבר לספורטאים ולמוסדות האקדמיים.','להרשמה ולפרטים: פנו לרכזי הספורט במוסד',bar='var(--slate)',plain=True)}
   </nav>
 </div>''',
@@ -169,7 +169,7 @@ ILCA.json('data/calendar.json').then(cal => {
 }).catch(() => { document.getElementById('upcoming').innerHTML = '<div class="empty">לא ניתן לטעון את רשימת התחרויות.</div>'; });
 ''')
 
-page('open-results.html','תוצאות התחרויות – הליגה הפתוחה','תוצאות התחרויות','הליגה הפתוחה · עונת <span class="ltr">2026/27</span>',('open.html','חזרה לליגה הפתוחה'),
+page('open-results.html','תוצאות התחרויות – הליגה הפתוחה','תוצאות התחרויות','הליגה הפתוחה · עונת <span class="ltr">2026/27</span>',('open','חזרה לליגה הפתוחה'),
 results_body(), RESULTS_JS + "resultsPage('open');", gap=28)
 
 # ---------- National League ----------
@@ -187,7 +187,7 @@ nat_hero + f'''
 <div class="row2">
   <section class="main">
     <div class="shead"><h2 class="disp">התחרויות הקרובות</h2>
-      <a class="tlink" href="national-season.html"><span>לרשימה המלאה</span>{ARROW_L}</a></div>
+      <a class="tlink" data-page="nationalSeason"><span>לרשימה המלאה</span>{ARROW_L}</a></div>
     <div class="list" id="upcoming"><div class="empty">טוען…</div></div>
   </section>
   {panel('הרשמה ומידע',[('big','הרשמה לתחרויות הליגה','https://loglig.com/Activity/Form/62989?seasonId=1762',''),('big','הרשמה לסימולציות מזכות','https://loglig.com/Activity/Form/63057?seasonId=1762',''),('p','מידע על הליגה','https://drive.google.com/file/d/1UrtAh3AUyAHpVd7kk7866ywP-9Vo0WlQ/view',''),('p','תקנון הליגה הארצית בבולדר','https://drive.google.com/file/d/1Uifrd67mOIvQqn55A7LkGWIWy8ZeGSMJ/view',''),('p','תקנון הליגה הארצית בהובלה','https://drive.google.com/file/d/11wfNcS_49COjTQXKWt13NESmXUJ7uGfZ/view','')])}
@@ -201,7 +201,7 @@ nat_hero + f'''
     <div style="margin-top:8px;font-size:13px;color:var(--muted)" id="lnote"></div>
   </section>
   <nav class="side-nav" aria-label="תוצאות">
-    {navcard('תוצאות התחרויות','התוצאות המלאות של כל תחרות, בבולדר ובהובלה','לתוצאות',href='national-results.html')}
+    {navcard('תוצאות התחרויות','התוצאות המלאות של כל תחרות, בבולדר ובהובלה','לתוצאות',page='nationalResults')}
     {navcard('תוצאות הליגה','הניקוד המצטבר בבולדר ובהובלה, לפי קטגוריה','בקרוב',bar='var(--navy)')}
   </nav>
 </div>''',
@@ -258,10 +258,10 @@ ILCA.json('data/national-photos.json').then(p => {
 }).catch(() => {});
 ''')
 
-page('national-results.html','תוצאות התחרויות – הליגה הארצית','תוצאות התחרויות','הליגה הארצית וסימולציות · עונת <span class="ltr">2026/27</span>',('national.html','חזרה לליגה הארצית'),
+page('national-results.html','תוצאות התחרויות – הליגה הארצית','תוצאות התחרויות','הליגה הארצית וסימולציות · עונת <span class="ltr">2026/27</span>',('national','חזרה לליגה הארצית'),
 results_body(), RESULTS_JS + "resultsPage('national');", gap=28)
 
-page('national-season.html','כל תחרויות העונה – הליגה הארצית','כל תחרויות העונה','הליגה הארצית וסימולציות · עונת <span class="ltr">2026/27</span>',('national.html','חזרה לליגה הארצית'),
+page('national-season.html','כל תחרויות העונה – הליגה הארצית','כל תחרויות העונה','הליגה הארצית וסימולציות · עונת <span class="ltr">2026/27</span>',('national','חזרה לליגה הארצית'),
 '''<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;border-top:3px solid var(--navy);border-bottom:1px solid var(--mist);padding:12px 0">
   <div role="group" aria-label="סוג תחרות" style="display:flex;flex-wrap:wrap;gap:6px" id="filters"></div>
   <label style="display:inline-flex;align-items:center;gap:8px;min-height:44px;font-size:15px;color:var(--slate);cursor:pointer">
