@@ -190,7 +190,7 @@ const META = {
  "upcoming": [
   {
    "id": "B-L2",
-   "name": "ליגת העל בבולדר - תחרות 2",
+   "name": "ליגת העל בולדר 2",
    "disc": "B",
    "venue": "אולם נורמן, מכון וינגייט",
    "start": "2026-11-10",
@@ -201,7 +201,7 @@ const META = {
   },
   {
    "id": "B-L3",
-   "name": "ליגת העל בבולדר - תחרות 3",
+   "name": "ליגת העל בולדר 3",
    "disc": "B",
    "venue": "אולם נורמן, מכון וינגייט",
    "start": "2026-12-08",
@@ -212,7 +212,7 @@ const META = {
   },
   {
    "id": "L-L2",
-   "name": "ליגת העל בהובלה - תחרות 2",
+   "name": "ליגת העל הובלה 2",
    "disc": "L",
    "venue": "The Wall מודיעין",
    "start": "2026-12-23",
@@ -225,7 +225,7 @@ const META = {
  "past": [
   {
    "id": "B-L1",
-   "name": "ליגת העל בבולדר - תחרות 1",
+   "name": "ליגת העל בולדר 1",
    "disc": "B",
    "venue": "מכון וינגייט",
    "start": "2026-10-13",
@@ -234,7 +234,7 @@ const META = {
   },
   {
    "id": "L-L1",
-   "name": "ליגת העל בהובלה - תחרות 1",
+   "name": "ליגת העל הובלה 1",
    "disc": "L",
    "venue": "The Wall מודיעין",
    "start": "2026-10-28",
@@ -243,7 +243,7 @@ const META = {
   },
   {
    "id": "B-L2",
-   "name": "ליגת העל בבולדר - תחרות 2",
+   "name": "ליגת העל בולדר 2",
    "disc": "B",
    "venue": "אולם נורמן, מכון וינגייט",
    "start": "2026-11-10",
@@ -499,7 +499,7 @@ const META = {
 // Federation page with the national rankings (המדרג הלאומי). Replace with the ilca.org.il page address.
 const RANKINGS_URL = 'https://goony663.github.io/National-Rankings/';
 // Landing page of all leagues (תחרויות לאומיות). Replace with its address on the federation website.
-const LANDING_URL = 'index.html';
+const LANDING_URL = 'https://ilca.org.il/%D7%A1%D7%A4%D7%95%D7%A8%D7%98/%D7%AA%D7%97%D7%A8%D7%95%D7%99%D7%95%D7%AA-%D7%9C%D7%90%D7%95%D7%9E%D7%99%D7%95%D7%AA-2/';
 
 const DISC = {B:'בולדר', L:'הובלה'};
 const MONTHS = ['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
@@ -595,14 +595,14 @@ function renderChyron(){
   const items = [];
   const last = past[past.length - 1];
   if (last) {
-    const short = last.name.replace('ליגת העל ב', '').replace(' - תחרות ', ' ');
+    const short = last.name.replace('ליגת העל ', '');
     CARDS.forEach(([g,t,label]) => {
       const rows = ((RESULTS[last.id][g] || {})[t] || []).filter(r => r[0] <= 3);
       if (rows.length) items.push([`${short} · ${label}`, podiumLine(rows)]);
     });
   }
   upcoming.forEach((c, i) => {
-    const short = c.name.replace('ליגת העל ב', '').replace(' - תחרות ', ' ');
+    const short = c.name.replace('ליגת העל ', '');
     const n = dayDiff(c.start);
     const when = n > 1 ? `בעוד ${n} ימים` : n === 1 ? 'מחר' : 'מתקיימת עכשיו';
     items.push([`${i === 0 ? 'התחרות הבאה' : 'בהמשך העונה'} · ${short}`, `${dm(D(c.start))}–${dm(D(c.end))}, ${c.venue} (${when}). ${dayDiff(c.regClose) >= 0 ? 'סגירת רישום ' + dm(D(c.regClose)) : 'הרישום נסגר'}`]);
@@ -614,7 +614,7 @@ function renderChyron(){
   $('#chbar').onclick = () => $('#chbar').classList.toggle('paused');
 }
 
-$('#backlink').href = LANDING_URL; if (!/^https?:/.test(LANDING_URL)) $('#backlink').target = '_self';
+$('#backlink').href = LANDING_URL;
 renderUpcoming(); renderNext(); renderPast(); renderChyron();
 if (location.hash) { try { history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
 </script>
