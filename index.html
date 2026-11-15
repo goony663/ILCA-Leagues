@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תחרויות לאומיות – התאחדות הטיפוס</title>
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<div class="wrap">
+
+<header class="site-head">
+  <div>
+    <h1 class="disp">תחרויות לאומיות</h1>
+    <div class="sub">עונת <span class="ltr">2026/27</span></div>
+  </div>
+  <img class="logo" src="assets/logo.svg" alt="התאחדות הטיפוס בישראל">
+</header>
+
+<div class="chyron" aria-label="עדכונים מהתחרויות">
+  <div class="ch-lbl"><span class="disp">עדכונים</span></div>
+  <div class="ch-gap" aria-hidden="true"></div>
+  <div class="ch-bar" id="chbar" title="לחיצה עוצרת או ממשיכה את הגלילה">
+    <div class="ch-in"><div class="ch-track" id="chtrack"></div></div>
+  </div>
+</div>
+
+<div class="row2">
+  <section class="main">
+    <div class="shead"><h2 class="disp">התחרויות הקרובות</h2></div>
+    <div class="list" id="upcoming"><div class="empty">טוען…</div></div>
+  </section>
+
+  <aside class="side panel" aria-label="הרשמה">
+    <div class="stripe s1" aria-hidden="true"></div><div class="stripe s2" aria-hidden="true"></div>
+    <h2 class="disp">הרשמה</h2>
+    <a class="bigbtn" href="https://loglig.com/Activity/Form/62594?seasonId=1762" target="_blank" rel="noopener">
+      <span><span><strong>רישום להתאחדות</strong><small>חברות בהתאחדות לעונת 2026/27</small></span>
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg></span>
+    </a>
+    <a class="plink" href="#leagues"><strong>רישום לתחרויות</strong><span>הרישום לכל תחרות נמצא בדף הליגה שלה</span></a>
+    <a class="plink" href="https://drive.google.com/file/d/1g0PHbWPB_pFXdqxG6ZLyZo83JNiXDOM1/view" target="_blank" rel="noopener"><strong>הסברי רישום לתחרויות</strong><span>מה צריך ואיך נרשמים, צעד אחר צעד</span></a>
+  </aside>
+</div>
+
+<section id="leagues">
+  <div class="shead"><h2 class="disp" style="font-size:40px;margin-bottom:4px">הליגות</h2></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+</div>
+
+<script src="assets/site.js"></script>
+<script>
+/* Where each league card leads. Set the federation-site address of each page once it is live;
+   null = page not built yet (card shows "בקרוב"). */
+const LEAGUES = [
+  { id: 'open',     title: 'הליגה הפתוחה', lines: ['הליגה הפתוחה לבוגרים ולבוגרות'], bar: 'var(--steel)', url: null },
+  { id: 'national', title: 'הליגה הארצית', lines: ['ליגת הילדים והנוער (U11 עד U19)', 'סימולציות מזכות (U17 ומעלה)'], bar: 'var(--slate)', url: null },
+  { id: 'elite',    title: 'ליגת העל',     lines: ['ליגת הטיפוס הבכירה בישראל'], bar: 'var(--navy)', url: 'elite.html' },
+  { id: 'champ',    title: 'אליפויות',     lines: ['אליפויות ישראל בבולדר ובהובלה: ילדים, נוער, בוגרים'], bar: 'var(--steel2)', url: null, go: 'לדף האליפויות' }
+];
+const UPCOMING_COUNT = 3;
+
+function renderCards(){
+  document.getElementById('cards').innerHTML = LEAGUES.map(l => {
+    const inner = `<div class="bar" aria-hidden="true" style="background:${l.bar}"></div>
+      <h3 class="disp">${l.title}</h3><p>${l.lines.map(x => `<span>${ILCA.esc(x)}</span>`).join('')}</p>
+      <span class="go">${l.url ? (l.go || 'לדף הליגה') : 'בקרוב'}</span>`;
+    return l.url ? `<a class="lcard" href="${l.url}" target="${/^https?:/.test(l.url) ? '_top' : '_self'}">${inner}</a>` : `<div class="lcard soon">${inner}</div>`;
+  }).join('');
+}
+
+function renderUpcoming(items){
+  const next = items.filter(c => !c.cancelled && ILCA.dayDiff(c.end || c.start) >= 0)
+                    .sort((a, b) => ILCA.D(a.start) - ILCA.D(b.start)).slice(0, UPCOMING_COUNT);
+  document.getElementById('upcoming').innerHTML = next.length ? next.map(c => `
+    <article class="item">
+      ${ILCA.dateBox(c)}
+      <div class="body">
+        <h3>${ILCA.esc(c.title)}</h3>
+        <div class="vn">${ILCA.esc(c.sub)}</div>
+        <div class="meta">
+          <span>קטגוריות: <strong>${ILCA.esc(c.cats)}</strong></span>
+          ${ILCA.regText(c)}
+          ${c.hours ? `<span>שעות: <strong>${ILCA.esc(c.hours)}</strong></span>` : ''}
+        </div>
+        ${c.note ? `<div class="note">${ILCA.esc(c.note)}</div>` : ''}
+      </div>
+    </article>`).join('') : '<div class="empty">אין תחרויות קרובות כרגע.</div>';
+  return next;
+}
+
+(async () => {
+  renderCards();
+  let cal = { items: [] }, upd = { items: [] };
+  try { [cal, upd] = await Promise.all([ILCA.json('data/calendar.json'), ILCA.json('data/updates.json')]); }
+  catch (e) { document.getElementById('upcoming').innerHTML = '<div class="empty">לא ניתן לטעון את רשימת התחרויות.</div>'; }
+  const next = renderUpcoming(cal.items || []);
+  const items = (upd.items || []).slice();
+  if (next[0]) {
+    const c = next[0], n = ILCA.dayDiff(c.start);
+    items.push(['התחרות הבאה', `${c.title} – ${c.sub}, ${n > 1 ? 'בעוד ' + n + ' ימים' : n === 1 ? 'מחר' : 'היום'}`]);
+  }
+  ILCA.chyron(items);
+})();
+</script>
+</body>
+</html>
