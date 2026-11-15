@@ -7,5 +7,9 @@
     if (e.origin === 'https://goony663.github.io' && e.data && e.data.ilcaHeight) {
       document.getElementById('ilca-frame').style.height = e.data.ilcaHeight + 'px';
     }
+    if (e.origin === 'https://goony663.github.io' && e.data && e.data.ilcaScrollTop) {
+      var f = document.getElementById('ilca-frame');
+      window.scrollTo({ top: f.getBoundingClientRect().top + window.pageYOffset - 120, behavior: 'auto' });
+    }
   });
 </script>

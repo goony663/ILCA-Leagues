@@ -9,6 +9,8 @@
       if (Math.abs(h - last) > 2) { last = h; window.parent.postMessage({ ilcaHeight: h }, '*'); }
     };
     window.addEventListener('load', send);
+    // Opened from another page inside the same frame: ask the federation page to scroll back to the top of the frame
+    try { if (document.referrer && new URL(document.referrer).origin === location.origin) window.parent.postMessage({ ilcaScrollTop: true }, '*'); } catch (e) {}
     window.addEventListener('resize', send);
     try { new ResizeObserver(send).observe(document.body); } catch (e) { setInterval(send, 1000); }
   }
