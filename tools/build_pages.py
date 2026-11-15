@@ -202,7 +202,7 @@ nat_hero + f'''
   </section>
   <nav class="side-nav" aria-label="תוצאות">
     {navcard('תוצאות התחרויות','התוצאות המלאות של כל תחרות, בבולדר ובהובלה','לתוצאות',page='nationalResults')}
-    {navcard('תוצאות הליגה','הניקוד המצטבר בבולדר ובהובלה, לפי קטגוריה','בקרוב',bar='var(--navy)')}
+    {navcard('תוצאות הליגה','הניקוד המצטבר בבולדר ובהובלה, לפי קטגוריה','לטבלת הליגה',page='nationalStandings',bar='var(--navy)')}
   </nav>
 </div>''',
 UPCOMING_JS + r'''
@@ -307,6 +307,43 @@ document.getElementById('hide').onchange = e => { hidePast = e.target.checked; d
 ILCA.json('data/calendar.json').then(cal => { items = cal.items || []; draw(); })
   .catch(() => { document.getElementById('months').innerHTML = '<div class="empty">לא ניתן לטעון את רשימת התחרויות.</div>'; });
 ''', gap=28)
+
+# ---------- National League standings ----------
+page('national-standings.html','תוצאות הליגה – הליגה הארצית','תוצאות הליגה','הליגה הארצית · הניקוד המצטבר · עונת <span class="ltr">2026/27</span>',('national','חזרה לליגה הארצית'),
+"""<div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;border-top:3px solid var(--navy);border-bottom:1px solid var(--mist);padding:12px 0">
+  <div class="dgroup" style="border:0;padding:0" role="group" aria-label="ענף" id="discs"></div>
+  <label style="display:flex;align-items:center;gap:8px;font-size:14px;color:var(--slate)"><span>קטגוריה</span><select class="sel" id="cat"></select></label>
+</div>
+<section class="main" style="flex:none">
+  <h2 class="disp" id="ttl" style="margin-bottom:8px"></h2>
+  <ol class="list" id="table" style="list-style:none;margin:0;padding:0"></ol>
+  <div class="foot"><p id="upd"></p></div>
+</section>""",
+r"""
+const cats = []; ['U11','U13','U15','U17','U19'].forEach(a => { cats.push(a + ' בנות'); cats.push(a + ' בנים'); });
+let disc = 'boulder', cat = cats[0], data = null;
+const sel = document.getElementById('cat');
+sel.innerHTML = cats.map(c => `<option>${c}</option>`).join('');
+sel.onchange = () => { cat = sel.value; draw(); };
+const fills = ['var(--navy)','var(--slate)','var(--steel)'];
+function draw(){
+  ILCA.discButtons(document.getElementById('discs'), disc, d => { disc = d; draw(); });
+  document.getElementById('ttl').textContent = `${ILCA.KIND[disc]} · ${cat}`;
+  const rows = data && data[disc] && data[disc][cat] || [];
+  let place = 0, prev = null;
+  document.getElementById('table').innerHTML = rows.length ? rows.map((r, i) => {
+    if (r[2] !== prev) { place = i + 1; prev = r[2]; }
+    const badge = place <= 3 ? `<span class="lead-badge" style="background:${fills[place - 1]};width:40px;height:40px;font-size:26px"><span>${place}</span></span>`
+                             : `<span class="disp" style="flex:0 0 40px;text-align:center;font-size:26px;color:var(--navy)">${place}</span>`;
+    return `<li class="item" style="gap:16px">${badge}
+      <div class="body"><strong style="font-size:16px">${ILCA.esc(r[0])}</strong><span style="font-size:13px;color:var(--muted)">${ILCA.esc(r[1])}</span></div>
+      <div style="display:flex;flex-direction:column;align-items:flex-end"><strong class="disp" style="font-size:28px">${ILCA.esc(r[2])}</strong><span style="font-size:12px;color:var(--muted)">נקודות</span></div></li>`;
+  }).join('') : '<li class="empty">טבלת הליגה תתפרסם כאן במהלך העונה.</li>';
+  document.getElementById('upd').textContent = data && data.updatedAfter ? `מעודכן אחרי ${data.updatedAfter}` : '';
+}
+draw();
+ILCA.json('data/national-leaders.json').then(d => { data = d; draw(); }).catch(() => {});
+""", gap=28)
 
 # ---------- Championships ----------
 crit = '''<div style="display:flex;flex-wrap:wrap;gap:14px">

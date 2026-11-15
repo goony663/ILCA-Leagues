@@ -6,7 +6,7 @@ Design by Noam ("דף תוצאות התאחדות הטיפוס"); built as plain
 Pages
 - `index.html` – landing page, all leagues (תחרויות לאומיות)
 - `open.html`, `open-results.html` – הליגה הפתוחה and its results
-- `national.html`, `national-results.html`, `national-season.html` – הליגה הארצית, its results and the full season list
+- `national.html`, `national-results.html`, `national-standings.html`, `national-season.html` – הליגה הארצית, its competition results, the league table (תוצאות הליגה) and the full season list
 - `elite.html` – ליגת העל
 - `championships.html` – אליפויות ישראל
 

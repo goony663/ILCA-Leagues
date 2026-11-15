@@ -25,7 +25,8 @@ const ILCA_PAGES = {
   openResults:     { file: 'open-results.html',     wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%A4%D7%AA%D7%95%D7%97%D7%94/' },
   national:        { file: 'national.html',         wp: 'https://ilca.org.il/%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%90%D7%A8%D7%A6%D7%99%D7%AA/' },
   nationalResults: { file: 'national-results.html', wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94-%D7%94%D7%90%D7%A8%D7%A6%D7%99%D7%AA/' },
-  nationalSeason:  { file: 'national-season.html',  wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94/' },
+  nationalSeason:  { file: 'national-season.html',  wp: null },
+  nationalStandings: { file: 'national-standings.html', wp: 'https://ilca.org.il/%D7%AA%D7%95%D7%A6%D7%90%D7%95%D7%AA-%D7%94%D7%9C%D7%99%D7%92%D7%94/' },
   champ:           { file: 'championships.html',    wp: 'https://ilca.org.il/%D7%90%D7%9C%D7%99%D7%A4%D7%95%D7%99%D7%95%D7%AA/' },
   rankings:        { file: null,                    wp: 'https://ilca.org.il/%d7%94%d7%9e%d7%93%d7%a8%d7%92-%d7%94%d7%9c%d7%90%d7%95%d7%9e%d7%99-%d7%91%d7%98%d7%99%d7%a4%d7%95%d7%a1/' }
 };
