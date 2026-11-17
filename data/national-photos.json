@@ -1,1 +1,161 @@
-{"credit":"הילארי חכמון","center":[],"right":[],"left":[]}
+{
+ "credit": "הילארי חכמון",
+ "center": [
+  {
+   "src": "assets/photos/national/u13-final-1.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-115.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-46.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-162.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-107.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-266.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-135.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-335.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-146.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-147.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-217.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-277.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-287.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  }
+ ],
+ "right": [
+  {
+   "src": "assets/photos/national/u13-final-14.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-22.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-26.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-29.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-43.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-87.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-114.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-126.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-158.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-167.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-182.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-187.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u13-final-195.jpg",
+   "alt": "גמר U13 בליגה הארצית"
+  }
+ ],
+ "left": [
+  {
+   "src": "assets/photos/national/u15-final-47.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-63.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-93.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-112.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-133.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-178.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-192.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-193.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-248.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-296.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-343.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  },
+  {
+   "src": "assets/photos/national/u15-final-358.jpg",
+   "alt": "גמר U15 בליגה הארצית"
+  }
+ ]
+}
