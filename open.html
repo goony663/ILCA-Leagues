@@ -67,7 +67,7 @@ function upcomingRow(c, opts = {}){
     <div class="meta">${meta.join('')}</div>${c.note ? `<div class="note">${ILCA.esc(c.note)}</div>` : ''}</div></article>`;
 }
 function nextOf(items, league, n){
-  return items.filter(c => c.league === league && !c.status && ILCA.dayDiff(c.end || c.start) >= 0)
+  return items.filter(c => c.league === league && !c.status && !c.approx && ILCA.dayDiff(c.end || c.start) >= 0)
               .sort((a, b) => ILCA.D(a.start) - ILCA.D(b.start)).slice(0, n);
 }
 

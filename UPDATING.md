@@ -46,8 +46,9 @@ Design: Noam's "דף תוצאות התאחדות הטיפוס" (Claude Design). 
 
 ### `data/calendar.json`: all competitions, all leagues
 
-Source: the Google Sheet "רשימת תחרויות ליגה ארצית וסימולציות- עונת 2027-2026 + דפי הליגות"
-(id `1nf2STPq1VxF4VZF2PKiMU252FJIoy8kPzrXVWVB2T_E`), one tab per league.
+Sources (two Google Sheets):
+- **הליגה הפתוחה**: "רשימת תחרויות הליגה הפתוחה- עונת 2027-2026" (id `1t7v-caJJMWF6D6ToL2j2286n3eHruvNp1NIqUqOy0k8`), tab **תחרויות לפרסום** only. Ignore the סטודנטים tab and the "תחרויות נוספות יפתחו בקרוב" row. When registration opening is "בקרוב", add `"note": "פתיחת הרישום: בקרוב"`. A month with no exact date gets `approx`.
+- **All other leagues** (national, elite, championships): "רשימת תחרויות ליגה ארצית וסימולציות- עונת 2027-2026" (id `1nf2STPq1VxF4VZF2PKiMU252FJIoy8kPzrXVWVB2T_E`), one tab per league.
 The sheet does not update the site by itself. When asked to update the calendar, read the sheet, then rewrite the matching items and set `"updated"` to today.
 
 Each item looks like this:
