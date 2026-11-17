@@ -133,8 +133,7 @@ table.simple tbody th{font-family:Karantina,Heebo,sans-serif;font-weight:700;fon
 @media (min-width:768px){.hero.has{display:flex}}
 .hero .frames{display:flex;gap:8px;align-items:flex-start}
 .hero .fr{min-width:0;position:relative;overflow:hidden;background:var(--mist)}
-.hero .frames{height:clamp(220px,23vw,280px)}
-.hero .fr{height:100%}.hero .fr.side{flex:1 1 0}.hero .fr.mid{flex:2.2 1 0}
+.hero .fr.side{flex:.6667 1 0;aspect-ratio:2/3}.hero .fr.mid{flex:1.5 1 0;aspect-ratio:3/2}
 .hero .fr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease}
 .hero .fr img.on{opacity:1}
 .hero .ctl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}

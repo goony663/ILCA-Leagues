@@ -84,7 +84,7 @@ Per league there is a `drive` folder link and `items`. Each item is one competit
 
 ### `data/national-leaders.json`, `data/national-photos.json`
 
-These hold the National League leaders table and the slideshow photos. Both are empty until there's content; the page hides empty sections.
+`national-leaders.json` holds the National League leaders table. `national-photos.json` holds the slideshow photos, shown at the bottom of the landing page (`index.html`). Both are empty until there's content; the pages hide empty sections.
 Photo credit: הילארי חכמון.
 
 ## Elite League (ליגת העל) after each competition

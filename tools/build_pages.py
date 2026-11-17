@@ -1,7 +1,7 @@
 # Generates the league pages of the ILCA-Leagues site (design: Noam). Run: python3 build.py
 import os
 import os
-V='20261117a'  # bump after changing assets/site.css or site.js, so browsers load the new version
+V='20261117b'  # bump after changing assets/site.css or site.js, so browsers load the new version
 OUT=os.path.join(os.path.dirname(os.path.abspath(__file__)), '..') + '/'
 ARROW_L='<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"></path></svg>'
 ARROW_L22=ARROW_L.replace('width="18" height="18"','width="22" height="22"')
@@ -174,18 +174,8 @@ page('open-results.html','תוצאות התחרויות – הליגה הפתו�
 results_body(), RESULTS_JS + "resultsPage('open');", gap=28)
 
 # ---------- National League ----------
-nat_hero = f'''<section class="hero" id="hero" aria-label="תמונות מתחרויות הליגה">
-  <div class="frames">
-    <div class="fr side" id="frR"></div>
-    <div class="fr mid" id="frC" aria-roledescription="carousel" aria-label="תמונות מתחלפות"></div>
-    <div class="fr side" id="frL"></div>
-  </div>
-  <div class="ctl"><div style="display:flex;align-items:center;gap:10px"><button type="button" class="pp" id="pp"></button><div class="dots" id="dots"></div></div>
-    <div class="credit" id="credit"></div></div>
-</section>'''
 page('national.html','הליגה הארצית – התאחדות הטיפוס','הליגה הארצית','ליגת הילדים והנוער, קטגוריות: U11 עד U19 (שנתונים 2009 עד 2018)',('landing','חזרה לתחרויות לאומיות'),
-nat_hero + f'''
-<div class="row2">
+f'''<div class="row2">
   <section class="main">
     <div class="shead"><h2 class="disp">התחרויות הקרובות</h2>
       <a class="tlink" data-page="nationalSeason"><span>לרשימה המלאה</span>{ARROW_L}</a></div>
@@ -234,29 +224,6 @@ ILCA.json('data/calendar.json').then(cal => {
   ILCA.json('data/national-leaders.json').then(d => { data = d; draw(); }).catch(() => {});
 })();
 
-/* photo slideshow: data/national-photos.json {credit, center:[{src,alt}], right:[...], left:[...]} — hidden until photos are added */
-ILCA.json('data/national-photos.json').then(p => {
-  if (!p || !(p.center || []).length) return;
-  const hero = document.getElementById('hero'); hero.classList.add('has');
-  const fill = (el, list) => { el.innerHTML = list.map((s, i) => `<img src="${s.src}" alt="${ILCA.esc(s.alt || '')}" class="${i ? '' : 'on'}" loading="lazy">`).join(''); return [...el.querySelectorAll('img')]; };
-  const C = fill(document.getElementById('frC'), p.center), R = fill(document.getElementById('frR'), p.right || []), L = fill(document.getElementById('frL'), p.left || []);
-  document.getElementById('credit').textContent = p.credit ? 'צילום: ' + p.credit : '';
-  let c = 0, r = 0, l = 0, tick = 0, paused = false;
-  try { paused = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-  const show = (arr, i) => arr.forEach((im, k) => im.classList.toggle('on', k === i));
-  const dots = document.getElementById('dots');
-  const drawDots = () => { dots.innerHTML = C.map((_, i) => `<button type="button" aria-label="תמונה ${i + 1} מתוך ${C.length}" aria-current="${i === c}"><span></span></button>`).join('');
-    dots.querySelectorAll('button').forEach((b, i) => b.onclick = () => { c = i; show(C, c); drawDots(); }); };
-  const pp = document.getElementById('pp');
-  const drawPP = () => { pp.setAttribute('aria-label', paused ? 'הפעלת התמונות המתחלפות' : 'עצירת התמונות המתחלפות');
-    pp.innerHTML = paused ? '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>' : '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="5" width="4" height="14"></rect><rect x="14" y="5" width="4" height="14"></rect></svg>'; };
-  pp.onclick = () => { paused = !paused; drawPP(); };
-  drawDots(); drawPP();
-  setInterval(() => { if (paused) return; tick++;
-    if (tick % 2 === 0) { c = (c + 1) % C.length; show(C, c); drawDots(); }
-    if (R.length && tick % 8 === 3) { r = (r + 1) % R.length; show(R, r); }
-    if (L.length && tick % 8 === 7) { l = (l + 1) % L.length; show(L, l); } }, 3000);
-}).catch(() => {});
 ''')
 
 page('national-results.html','תוצאות התחרויות – הליגה הארצית','תוצאות התחרויות','הליגה הארצית וסימולציות · עונת <span class="ltr">2026/27</span>',('national','חזרה לליגה הארצית'),

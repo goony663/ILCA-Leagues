@@ -14,7 +14,7 @@ Data (routine updates change only these)
 - `data/calendar.json` – all competitions of all leagues (league, kind, dates, registration…)
 - `data/results.json` – results PDF links and Drive folders per league
 - `data/updates.json` – lines for the updates bar on the landing page
-- `data/national-leaders.json`, `data/national-photos.json` – הליגה הארצית leaders table and slideshow (empty until filled)
+- `data/national-leaders.json`, `data/national-photos.json` – הליגה הארצית leaders table, and the slideshow at the bottom of the landing page (empty until filled)
 
 Where pages link to: `ILCA_PAGES` at the top of `assets/site.js` (ilca.org.il address of each page).
 `tools/build_pages.py` regenerates the league pages.
